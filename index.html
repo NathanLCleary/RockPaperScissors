@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="images/download.png" />
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body>
+    <button class="settings-btn" onclick="showModal()">
+        ⚙️
+    </button>
+    
+    <div class="draws-info">
+        Draws: <span id="draws">0</span>
+    </div>
+
+    <div id="celebrationOverlay" class="celebration-overlay hidden"></div>
+
+    <!-- Left Sidebar - Overall Stats -->
+    <div class="sidebar sidebar-left">
+        <h3>📊 Statistics</h3>
+        
+        <div class="stats-section">
+            <h4>🎮 Match Stats</h4>
+            <div class="stat-item">
+                <span>Matches Played:</span>
+                <span id="totalGames">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Matches Won:</span>
+                <span id="totalWins">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Matches Lost:</span>
+                <span id="totalLosses">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Match Win Rate:</span>
+                <span id="winRate">0%</span>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <h4>🎯 Round Stats</h4>
+            <div class="stat-item">
+                <span>Total Rounds:</span>
+                <span id="totalRounds">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Rounds Won:</span>
+                <span id="roundsWon">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Round Win Rate:</span>
+                <span id="roundWinRate">0%</span>
+            </div>
+            <div class="stat-item">
+                <span>Total Draws:</span>
+                <span id="totalDraws">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar - Match History -->
+    <div class="sidebar sidebar-right">
+        <h3>📜 Match History</h3>
+        <div class="history-container" id="matchHistory"></div>
+    </div>
+
+    <div class="game-title">
+        <h1>🎮 Rock Paper Scissors</h1>
+        <div class="round-info">Round <span id="round">1</span></div>
+    </div>
+
+    <div class="game-container">
+        <div class="scores-row">
+            <div class="score-display">
+                <h3>Your Score</h3>
+                <div class="score"><span id="pScore">0</span> / <span id="goal">3</span></div>
+            </div>
+            <div class="score-display">
+                <h3>Opponent Score</h3>
+                <div class="score"><span id="oScore">0</span> / <span id="oGoal">3</span></div>
+            </div>
+        </div>
+        
+        <div class="game-play-area">
+            <div class="player-section">
+                <div class="choices">
+                    <button class="choice-btn" onclick="calculate(1)" id="rock">
+                        <img src="images/rock.jpg" alt="Rock">
+                    </button>
+                    <button class="choice-btn" onclick="calculate(2)" id="paper">
+                        <img src="images/paper1.jpg" alt="Paper">
+                    </button>
+                    <button class="choice-btn" onclick="calculate(3)" id="scissors">
+                        <img src="images/scissors.jpg" alt="Scissors">
+                    </button>
+                </div>
+            </div>
+
+            <div class="player-section">
+                <div class="opponent-choice">
+                    <div id="oRock" class="hidden">
+                        <img src="images/rock.jpg" alt="Rock">
+                    </div>
+                    <div id="oPaper" class="hidden">
+                        <img src="images/paper.jpg" alt="Paper">
+                    </div>
+                    <div id="oScissors" class="hidden">
+                        <img src="images/scissors.jpg" alt="Scissors">
+                    </div>
+                    <div id="waiting">?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Field" class="result-section hidden">
+        <div class="result-text" id="result"></div>
+        <button onclick="reset()" class="next-round-btn">Next Round</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h1>🎮 Rock, Paper, Scissors</h1>
+            <h2 id="winner"></h2>
+            <p>Choose your weapon! The rules are simple:</p>
+            <ul>
+                <li>🪨 Rock beats Scissors</li>
+                <li>✂️ Scissors beats Paper</li>
+                <li>📄 Paper beats Rock</li>
+            </ul>
+            <p>Rounds to win:</p>
+            <select id="goalAmount">
+                <option value="3">Best of 3</option>
+                <option value="5">Best of 5</option>
+                <option value="7">Best of 7</option>
+                <option value="9">Best of 9</option>
+                <option value="99">Unlimited</option>
+            </select>
+            <br><br>
+            <button onclick="startgame()" class="start-btn">🚀 Start Game</button>
+            <p><small>Note: Opening settings will reset the current game.</small></p>
+        </div>
+    </div>
+</body>
+
+</html>
