@@ -15,7 +15,7 @@
 | **Year** | 2024 |
 | **Featured** | true |
 | **HasDownload** | true |
-| **DownloadUrl** | RockPaperScissors |
+| **PreviewUrl** | https://nathanlcleary.github.io/RockPaperScissors |
 
 ---
 
